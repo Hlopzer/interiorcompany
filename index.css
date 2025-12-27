@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'GT Eesti Pro Display';
-    src: url('/fonts/GT\ Eesti\ Pro\ Display\ Light.ttf') format('woff2');
+    src: url('fonts/GT Eesti Pro Display Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -21,7 +21,7 @@ html, body { height: 100%; }
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
-    font-family: 'GT Eesti Pro Display', -apple-system, BlinkMacSystemFont;
+    font-family: 'GT Eesti Pro Display';
     font-weight: 300;
     letter-spacing: -0.01em;
     text-rendering: optimizeLegibility;
@@ -256,13 +256,13 @@ section[id] {
     text-shadow: 0 2px 14px rgba(0,0,0,0.45);
 }
 .btn-primary {
-    height: 34px;
+    height: 50px;
     padding: 0 26px;
     background: rgba(255,255,255,0.62);
     color: rgba(0,0,0,0.85);
     border: 1px solid rgba(255,255,255,0.35);
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 1.4px;
     cursor: pointer; transition: 0.3s;
     display: inline-flex;
