@@ -310,7 +310,7 @@ section[id] {
     text-transform: uppercase;
     font-size: 16px;
     letter-spacing: 1.4px;
-    cursor: pointer; transition: 0.3s;
+    cursor: pointer; transition: 0.30s;
     display: inline-flex;
     align-items: center;
     justify-content: center;

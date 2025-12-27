@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleGesture();
-    });
+    } );
 
     const handleGesture = () => {
         if (!lightbox.classList.contains('is-open')) return;
