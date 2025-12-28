@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ---------- LIGHTBOX ---------- */
+    /* LIGHTBOX */
     const lightbox = document.querySelector('.lightbox');
     const lightboxImg = document.querySelector('.lightbox__img');
     const lightboxClose = document.querySelector('.lightbox__close');
+    const lightboxPrev = document.querySelector('.lightbox__prev');
+    const lightboxNext = document.querySelector('.lightbox__next');
 
     let currentLightboxIndex = 0;
     let currentLightboxSlides = [];
@@ -57,8 +59,30 @@ document.addEventListener('DOMContentLoaded', () => {
         openLightbox(currentLightboxSlides, currentLightboxIndex);
     };
 
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevLightbox();
+        });
+    }
+
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextLightbox();
+        });
+    }
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightbox();
+        });
+    }
+
+    // Закрытие при клике за пределами картинки
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target === lightboxClose) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox__backdrop') || e.target.classList.contains('lightbox__content')) {
             closeLightbox();
         }
     });
@@ -71,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* ---------- КЛИК ПО АКТИВНОЙ КАРТИНКЕ ---------- */
-    document.querySelectorAll('.slider-container').forEach(container => {
+    /*  КЛИК ПО АКТИВНОЙ КАРТИНКЕ  */
+    document.querySelectorAll('.slider-container:not(.socials-section)').forEach(container => {
         container.addEventListener('click', () => {
             const slides = [...container.querySelectorAll('.slide')];
             const activeIndex = slides.findIndex(slide => slide.classList.contains('active'));
@@ -81,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* ---------- СЛАЙДЕР ---------- */
-    const sliderContainers = [...document.querySelectorAll('.slider-container')];
+    /* СЛАЙДЕР*/
+    const sliderContainers = [...document.querySelectorAll('.slider-container:not(.socials-section)')];
     const sliders = sliderContainers.map(c => [...c.querySelectorAll('.slide')]);
 
     let index = 0;
@@ -101,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlides();
     }, 6500);
 
-    /* ---------- SWIPE НА МОБИЛЬНЫХ ---------- */
+    /*SWIPE НА МОБИЛЬНЫХ*/
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -112,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleGesture();
-    } );
+    });
 
     const handleGesture = () => {
         if (!lightbox.classList.contains('is-open')) return;
@@ -120,7 +144,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (touchEndX > touchStartX + 50) prevLightbox();
     };
 
-    /* ---------- BURGER MENU ---------- */
+    const stopClick = (e) => {
+        e.stopPropagation();
+    };
+
+    document.querySelectorAll(
+        'a, button, .btn, .social a, .social button'
+    ).forEach(el => {
+        el.addEventListener('click', stopClick);
+    });
+
+    /* BURGER MENU*/
     const burger = document.querySelector('.burger');
     const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -139,6 +173,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 burger.setAttribute('aria-expanded', 'false');
                 mobileMenu.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
+            }
+        });
+    }
+
+    const servicesButtons = document.querySelectorAll('.services-buttons .btn-secondary');
+    
+    if (servicesButtons.length >= 2) {
+        // Первая кнопка - ЧАСТНЫЕ ИНТЕРЬЕРЫ
+        servicesButtons[0].addEventListener('click', () => {
+            const interiorsSection = document.querySelector('#interiors');
+            if (interiorsSection) {
+                interiorsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Вторая кнопка - ОБЩЕСТВЕННЫЕ ИНТЕРЬЕРЫ
+        servicesButtons[1].addEventListener('click', () => {
+            const interiorsSection = document.querySelector('#interiors');
+            if (interiorsSection) {
+                interiorsSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
     }

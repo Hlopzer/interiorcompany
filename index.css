@@ -65,9 +65,8 @@ section[id] {
 .overlay-light { background: rgba(0, 0, 0, 0.14); }
 .overlay-socials { background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.15)); }
 
-/* --- HEADER --- */
 .main-header {
-    position: fixed; /* Фиксируем шапку при скролле */
+    position: fixed; 
     top: 0; left: 0; width: 100%;
     z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
@@ -220,6 +219,7 @@ section[id] {
     border-bottom: 0;
     padding-bottom: 0;
     position: relative;
+    font-size: 17px;
 }
 .btn-link::after {
     content: '';
@@ -276,7 +276,6 @@ section[id] {
     border-radius: 10px;
 }
 
-/* --- HERO SECTION --- */
 .hero-section {
     height: 100vh;
     display: flex; align-items: center; justify-content: center;
@@ -322,9 +321,8 @@ section[id] {
     border: 1px solid rgba(255,255,255,0.35);
 }
 
-/* --- SERVICES (УСЛУГИ) --- */
 .services-section, .advantages-section {
-    background-color: #3a3a3a; /* Темно-серый фон */
+    background-color: #3a3a3a;
     padding: 70px 20px 80px;
     text-align: center;
 }
@@ -361,7 +359,7 @@ section[id] {
     object-fit: contain;
     filter: none;
     mix-blend-mode: screen;
-} /* invert если иконки черные */
+} 
 .icon-item span {
     font-size: 21px;
     letter-spacing: 1.3px;
@@ -385,7 +383,6 @@ section[id] {
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.78); color: rgba(0,0,0,0.9); }
 
-/* --- SPLIT SECTION --- */
 .split-section {
     display: flex;
     height: 78vh;
@@ -420,7 +417,6 @@ section[id] {
     color: #ffffff;
 }
 
-/* --- ARCHITECTURE --- */
 .architecture-section {
     height: 108vh;
     min-height: 680px;
@@ -439,7 +435,6 @@ section[id] {
     text-shadow: 0 2px 12px rgba(0,0,0,0.45);
 }
 
-/* --- ADVANTAGES (ПРЕИМУЩЕСТВА) --- */
 .advantages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -468,7 +463,6 @@ section[id] {
     text-align: center;
 }
 
-/* --- SOCIALS (FOOTER) --- */
 .socials-section {
     height: 118vh;
     min-height: 620px;
@@ -531,7 +525,6 @@ section[id] {
     object-fit: contain;
 }
 
-/* Адаптив */
 @media (max-width: 1290px) {
     .main-header { padding: 16px 40px; }
     .main-nav ul { gap: 24px; }
@@ -644,15 +637,10 @@ section[id] {
     line-height: 1.65;
     color: #ffffff;
 }
-/* ---------- CURSOR ---------- */
 
-/* курсор при наведении на секции с картинками */
 .slider-container {
     cursor: zoom-in;
 }
-
-/* ---------- LIGHTBOX ANIMATION ---------- */
-
 .lightbox {
     position: fixed;
     inset: 0;
@@ -688,7 +676,6 @@ section[id] {
     padding: 24px;
 }
 
-/* анимация появления изображения */
 .lightbox__img {
     max-width: 95vw;
     max-height: 90vh;
@@ -708,7 +695,6 @@ section[id] {
     opacity: 1;
 }
 
-/* кнопка закрытия */
 .lightbox__close {
     position: absolute;
     top: 20px;
@@ -727,7 +713,6 @@ section[id] {
 .lightbox__close:hover {
     background: rgba(255,255,255,0.25);
 }
-/* ---------- LIGHTBOX NAV ---------- */
 
 .lightbox__nav {
     position: absolute;
