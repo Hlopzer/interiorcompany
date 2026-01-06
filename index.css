@@ -496,7 +496,7 @@ section[id] {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 14px;
+    gap: 22px;
 }
 .social-icons a {
     width: 72px;
@@ -520,8 +520,8 @@ section[id] {
     color: inherit;
 }
 .social-icon-img {
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     object-fit: contain;
 }
 
@@ -641,6 +641,14 @@ section[id] {
 .slider-container {
     cursor: zoom-in;
 }
+
+ .socials-section.slider-container {
+     cursor: default;
+ }
+
+ .socials-section .slide {
+     cursor: default;
+ }
 .lightbox {
     position: fixed;
     inset: 0;
